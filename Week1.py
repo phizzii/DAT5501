@@ -1,5 +1,7 @@
-print("hey")
+a = input("input first number")
+b = input("input second number")
 
-print("i think this is branch2")
-print("i believe this is branch 1")
+def littleFunction(a,b):
+    print(a+b)
 
+littleFunction(a,b)
