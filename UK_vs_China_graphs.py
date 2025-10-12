@@ -46,6 +46,7 @@ plt.colorbar(label='Average working hours per worker')
 plt.title('Number of neurological deaths versus working hours in the UK and China', fontsize=10)
 plt.xlabel('Year', fontsize=12)
 plt.ylabel('Deaths from neurological related diseases', fontsize=12)
+plt.legend(title='Countries', loc='upper left')
 plt.grid(True)
 plt.tight_layout
 plt.show()
