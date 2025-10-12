@@ -34,3 +34,16 @@ mask3 = uk_china_annual_working_hours_df['Year'] >= (2011)
 uk_china_annual_working_hours_years_df = uk_china_annual_working_hours_df[mask3]
 
 print(uk_china_annual_working_hours_years_df)
+
+# graph for neuro deaths vs working hours both countries
+
+#plt.figure(figsize=(12,10))
+fig, axes = plt.subplots(figsize=(12,10))
+plt.scatter((uk_china_annual_working_hours_years_df['Year']),(uk_china_deaths_2011_to_2019_df['val']), c=(uk_china_annual_working_hours_years_df['Working hours per worker']), s=150, cmap='Spectral', edgecolors='black')
+plt.colorbar(label='Average working hours per worker')
+plt.title('Number of neurological deaths versus working hours in the UK and China', fontsize=10)
+plt.xlabel('Year', fontsize=12)
+plt.ylabel('Deaths from neurological related diseases', figsize=12)
+plt.grid(True)
+plt.tight_layout
+plt.show()
