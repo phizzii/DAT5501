@@ -42,33 +42,22 @@ print(uk_china_annual_working_hours_years_df)
 mask4 = uk_china_deaths_2011_to_2019_df['cause_name'] == ('Neurological disorders')
 neuro_only_uk_china_deaths_2011_2019_df = uk_china_deaths_2011_to_2019_df[mask4]
 
-fig, axes = plt.subplots(figsize=(10,8))
-plt.scatter((uk_china_annual_working_hours_years_df['Year']),(neuro_only_uk_china_deaths_2011_2019_df['val']), c=(uk_china_annual_working_hours_years_df['Working hours per worker']), s=150, cmap='Spectral', edgecolors='black')
-plt.colorbar(label='Average working hours per worker')
-plt.title('Number of neurological deaths versus working hours in the UK and China', fontsize=10)
-plt.xlabel('Year', fontsize=12)
-plt.ylabel('Deaths from neurological related diseases', fontsize=12)
-plt.legend(title='Countries', loc='upper left')
-plt.grid(True)
-plt.tight_layout
-plt.show()
-
-fig , ax1 = plt.subplots(figsize=(10,8))
+fig , ax1 = plt.subplots(figsize=(12,8))
 colours = {'United Kingdom': 'royalblue', 'China': 'orange'}
 
 ax2 = ax1.twinx()
 
 for country in ['United Kingdom', 'China']:
     subset_neuro = neuro_only_uk_china_deaths_2011_2019_df[neuro_only_uk_china_deaths_2011_2019_df['location_name'] == country]
-    ax1.bar(subset_neuro['year'] + (0.2 if country == 'China' else -0.2), subset_neuro['val'], width=0.4, color=colours[country], alpha=0.5, label=f'{country} deaths')
+    ax1.bar(subset_neuro['year'] + (0.2 if country == 'China' else -0.2), (subset_neuro['val']/1000), width=0.4, color=colours[country], alpha=0.5, label=f'{country} deaths')
 
 for country in ['United Kingdom', 'China']:
     subset_hours = uk_china_annual_working_hours_years_df[uk_china_annual_working_hours_years_df['Entity'] == country]
-    ax2.plot(subset_hours['Year'], subset_hours['Working hours per worker'], color=colours[country], marker='o', linewidth=2, label=f'{country} working hours')
+    ax2.plot(subset_hours['Year'], (subset_hours['Working hours per worker']/1000), color=colours[country], marker='o', linewidth=2, label=f'{country} working hours')
 
-ax1.set_xlabel('Year')
-ax1.set_ylabel('Neurological deaths')
-ax2.set_ylabel('Average working hours per worker')
+ax1.set_xlabel('Year', fontsize=14)
+ax1.set_ylabel('Neurological deaths (in thousands)', fontsize=14)
+ax2.set_ylabel('Average working hours per worker (in thousands)', fontsize=14)
 
 ax1.grid(True, axis='y', linestyle='--', alpha=0.7)
 
@@ -76,7 +65,9 @@ plt.title('Neurological deaths vs. working hours (UK versus China)', fontsize=12
 
 lines1, labels1 = ax1.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
-ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left')
+ax1.legend(lines1 + lines2, labels1 + labels2, bbox_to_anchor=(1.07, 1),loc='upper left')
 
 plt.tight_layout(rect=[0,0,0.85,1])
+
+#fig.subplots_adjust(right=0.8)
 plt.show()
