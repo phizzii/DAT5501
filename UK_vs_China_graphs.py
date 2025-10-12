@@ -1,4 +1,6 @@
 from re import M
+from turtle import color
+from matplotlib import markers
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -50,3 +52,27 @@ plt.legend(title='Countries', loc='upper left')
 plt.grid(True)
 plt.tight_layout
 plt.show()
+
+fig , ax1 = plt.subplots(figsize=(10,8))
+colours = {'United Kingdom': 'royalblue', 'China': 'orange'}
+
+for country in ['United Kingdom', 'China']:
+    subset_neuro = neuro_only_uk_china_deaths_2011_2019_df[neuro_only_uk_china_deaths_2011_2019_df['location_name'] == country]
+    subset_hours = uk_china_annual_working_hours_years_df[uk_china_annual_working_hours_years_df['Entity'] == country]
+
+    ax1.bar(subset_neuro['year'] + (0.2 if country == 'China' else -0.2), subset_neuro['val'], width=0.4, color=colours[country], alpha=0.5, label=f'{country} deaths')
+
+    ax2 = ax1.twinx()
+    ax2.plot(subset_hours['Year'], subset_hours['Working hours per worker'], color=colours[country], marker='o', linewidth=2, label=f'{country} working hours')
+
+    plt.title('Neurological deaths vs. working hours (UK versus China)', fontsize=12)
+    ax1.set_xlabel('Year')
+    ax1.set_ylabel('Neurological deaths')
+    ax2.set_ylabel('Average working hours per worker')
+
+    lines1, labels1 = ax1.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
+    ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left')
+
+    plt.tight_layout
+    plt.show()
