@@ -30,7 +30,7 @@ jan_rocket_lab_df = rocket_lab_historical_data_df.loc[jan_rocket_lab_df]
 print(jan_rocket_lab_df)
 
 # feb
-feb_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '02-01-2025') & (rocket_lab_historical_data_df['Date'] <= '02-31-2025')
+feb_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '02-01-2025') & (rocket_lab_historical_data_df['Date'] <= '02-28-2025')
 
 feb_rocket_lab_df = rocket_lab_historical_data_df.loc[feb_rocket_lab_df]
 
@@ -44,7 +44,7 @@ mar_rocket_lab_df = rocket_lab_historical_data_df.loc[mar_rocket_lab_df]
 print(mar_rocket_lab_df)
 
 # apr
-apr_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '04-01-2025') & (rocket_lab_historical_data_df['Date'] <= '04-31-2025')
+apr_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '04-01-2025') & (rocket_lab_historical_data_df['Date'] <= '04-30-2025')
 
 apr_rocket_lab_df = rocket_lab_historical_data_df.loc[apr_rocket_lab_df]
 
@@ -58,7 +58,7 @@ may_rocket_lab_df = rocket_lab_historical_data_df.loc[may_rocket_lab_df]
 print(may_rocket_lab_df)
 
 # jun
-jun_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '06-01-2025') & (rocket_lab_historical_data_df['Date'] <= '06-31-2025')
+jun_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '06-01-2025') & (rocket_lab_historical_data_df['Date'] <= '06-30-2025')
 
 jun_rocket_lab_df = rocket_lab_historical_data_df.loc[jun_rocket_lab_df]
 
@@ -79,7 +79,7 @@ aug_rocket_lab_df = rocket_lab_historical_data_df.loc[aug_rocket_lab_df]
 print(aug_rocket_lab_df)
 
 # sep
-sep_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '09-01-2025') & (rocket_lab_historical_data_df['Date'] <= '09-31-2025')
+sep_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '09-01-2025') & (rocket_lab_historical_data_df['Date'] <= '09-30-2025')
 
 sep_rocket_lab_df = rocket_lab_historical_data_df.loc[sep_rocket_lab_df]
 
@@ -93,14 +93,14 @@ oct_rocket_lab_df = rocket_lab_historical_data_df.loc[oct_rocket_lab_df]
 print(oct_rocket_lab_df)
 
 # nov
-nov_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '11-01-2025') & (rocket_lab_historical_data_df['Date'] <= '11-31-2025')
+nov_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '11-01-2024') & (rocket_lab_historical_data_df['Date'] <= '11-30-2024')
 
 nov_rocket_lab_df = rocket_lab_historical_data_df.loc[nov_rocket_lab_df]
 
 print(nov_rocket_lab_df)
 
 # dec
-dec_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '12-01-2025') & (rocket_lab_historical_data_df['Date'] <= '12-31-2025')
+dec_rocket_lab_df = (rocket_lab_historical_data_df['Date'] >= '12-01-2024') & (rocket_lab_historical_data_df['Date'] <= '12-31-2024')
 
 dec_rocket_lab_df = rocket_lab_historical_data_df.loc[dec_rocket_lab_df]
 
