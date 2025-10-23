@@ -1,6 +1,6 @@
 from re import M
 from turtle import color
-from matplotlib import markers
+from matplotlib import axes, markers
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -103,7 +103,9 @@ lines2, labels2 = ax2.get_legend_handles_labels()
 ax1.legend(lines1 + lines2, labels1 + labels2, bbox_to_anchor=(1.07, 1),loc='upper left')
 
 plt.tight_layout(rect=[0,0,0.85,1])
-
+axes.set_xticks(xticks, minor=True )
+axes.grid('on', which='minor', axis='x' )
+axes.grid('off', which='major', axis='x' )
 #fig.subplots_adjust(right=0.8)
 plt.show()
 
