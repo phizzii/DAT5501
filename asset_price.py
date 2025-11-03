@@ -121,6 +121,7 @@ dec_rocket_lab_df['Day'] = dec_rocket_lab_df['Date'].dt.day
 
 # creating visual for jan prices as line graph
 
+#print(jan_rocket_lab_df['Close/Last'].dtypes())
 fig, axes = plt.subplots(figsize=(10,8))
 
 #plt.scatter(jan_rocket_lab_df['Day'],jan_rocket_lab_df['Close/Last'], s=100)
@@ -130,10 +131,11 @@ plt.title
 plt.xlabel("Date in Jan", fontsize=14)
 plt.ylabel("Closing Asset Price", fontsize=14)
 plt.xticks(np.arange(0, 31, step=2))
-plt.yticks(np.arange(24, 32, step=0.5))
+#plt.yticks(np.arange(24, 32, step=0.5))
 #axes.set_xticks(xticks, minor=True)
 axes.grid('on', which='minor', axis='x' )
 axes.grid('on', which='major', axis='x' )
 plt.grid(True)
 #plt.tight_layout
 plt.show()
+
