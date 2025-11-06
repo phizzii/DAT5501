@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import graphs_barmet_education
 
+@pytest.fixture
 def sample_csvs(tmp_path):
     """Create sample CSV files to test with."""
     df = pd.DataFrame({
