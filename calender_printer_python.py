@@ -26,3 +26,6 @@ while day <= days_in_month:
         day_of_the_week = 0
 
 print()
+
+if __name__ == "__main__":
+    main()
