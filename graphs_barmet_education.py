@@ -55,8 +55,7 @@ def main(general_csv_path, results_csv_path, show_plots=True):
 
 if __name__ == "__main__":
     main(
-        '/Users/sophieb/Documents/csvGCSE.csv'
-        '/Users/sophieb/Documents/gcse results csv.csv'
+        '/Users/sophieb/Documents/csvGCSE.csv',
+        '/Users/sophieb/Documents/gcse results csv.csv',
         show_plots=True
     )
-    
