@@ -836,7 +836,11 @@ def operate_menu(menuList):
         print("Attempt Unsuccessful")
 
 # calls operate_menu function (main program)
-operate_menu(menu_choices)
+def main():
+    operate_menu(menu_choices)
+
+if __name__ == "__main__":
+    main()
 
 # Notes (important functions for me to remember)
 # os.chdir() > change current working directory
