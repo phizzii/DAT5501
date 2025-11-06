@@ -4,6 +4,9 @@ jobs:
   build:
     docker:
       - image: python:3.8
+
+    working_directory: ~/project/DAT5501
+
     steps:
       - checkout
       - run:
