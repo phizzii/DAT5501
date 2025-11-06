@@ -5,3 +5,5 @@ matplotlib
 scipy
 seaborn
 pyparsing
+xlsxwriter
+openpyxl
