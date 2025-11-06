@@ -16,6 +16,8 @@ def test_calendar_output_structure(monkeypatch, capsys):
     # import the script
     import calender_printer_python
 
+    calender_printer_python.main()
+    
     # 'capture' printed output
     capture = capsys.readouterr().out
 
