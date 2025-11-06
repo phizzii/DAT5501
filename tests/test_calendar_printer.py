@@ -13,11 +13,8 @@ def test_calendar_output_structure(monkeypatch, capsys):
     inputs = iter(["30", "Mon"])
     monkeypatch.setattr(builtins, 'input', lambda _: next(inputs))
 
-    # import the script
-    import calender_printer_python
-
     calender_printer_python.main()
-    
+
     # 'capture' printed output
     capture = capsys.readouterr().out
 
@@ -33,5 +30,5 @@ def test_starting_day_invalid(monkeypatch):
     monkeypatch.setattr(builtins, 'input', lambda _: next(inputs))
 
     with pytest.raises(ValueError):
-        import calender_printer_python
+        calender_printer_python.main()
                    
