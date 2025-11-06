@@ -26,15 +26,3 @@ while day <= days_in_month:
         day_of_the_week = 0
 
 print()
-
-
-
-
-#if starting_day == "Mon":
- #   days_in_month_total = days_in_month + 1
-  #  while count != (days_in_month_total):
-   #     for _ in range(days_in_month):
-    #        print(f" {count}", end="    ")
-     #       count += 1
-      #      if days_in_month == 7:
-       #         print('')
