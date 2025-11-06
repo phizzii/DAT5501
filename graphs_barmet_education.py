@@ -4,8 +4,11 @@ import matplotlib.pyplot as plt
 import scipy
 
 def main(general_csv_path, results_csv_path, show_plots=True):
-    dfGCSE = pd.read_csv('/Users/sophieb/Documents/csvGCSE.csv')
-    df = pd.read_csv('/Users/sophieb/Documents/gcse results csv.csv')
+    #dfGCSE = pd.read_csv('/Users/sophieb/Documents/csvGCSE.csv')
+    #df = pd.read_csv('/Users/sophieb/Documents/gcse results csv.csv')
+
+    dfGCSE = pd.read_csv(general_csv_path)
+    df = pd.read_csv(results_csv_path)
 
     fig, axes = plt.subplots(figsize=(12,6))
     axes = df['average point score'].plot.kde(color='r',linestyle='-',linewidth=3)
@@ -23,7 +26,8 @@ def main(general_csv_path, results_csv_path, show_plots=True):
     axes.annotate(f"Median={median:5.2f}", xy=(748,0.007))
     
     plt.legend()
-    plt.show()
+    if show_plots:
+        plt.show()
 
     data = pd.DataFrame(df)
     colors = ['royalblue','orange','orchid','forestgreen','gold','red']
@@ -34,7 +38,8 @@ def main(general_csv_path, results_csv_path, show_plots=True):
     plt.ylabel('Number of 16-18 year olds', fontsize=15)
     plt.title('Number of students being entered for Level 3 Qualifications each year from 2009-2014', fontsize=15)
     plt.xlabel('Year', fontsize=15)
-    plt.show()
+    if show_plots:
+        plt.show()
 
     plt.figure(figsize=(12,6))
     plt.scatter(df['year'],df['% achieving at least 2 L3 qualifications (per candidate)'], c=df['% achieving at least 2 L3 qualifications (per candidate)'], s=200, cmap='Spectral')
