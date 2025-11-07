@@ -6,7 +6,7 @@ import time
 # import your pet_game module
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from pet_game import Pet, start_interaction
+from pet.py import Pet, start_interaction
 
 
 @pytest.fixture
