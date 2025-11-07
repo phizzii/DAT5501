@@ -137,5 +137,57 @@ axes.grid('on', which='minor', axis='x' )
 axes.grid('on', which='major', axis='x' )
 plt.grid(True)
 #plt.tight_layout
+
+# clean the "Close/Last" column — ensure it’s numeric
+# some Nasdaq CSVs use "$" or commas; remove those and convert to float
+rocket_lab_historical_data_df['Close/Last'] = (
+    rocket_lab_historical_data_df['Close/Last']
+    .replace('[$,]', '', regex=True)
+    .astype(float)
+)
+
+# sort by date (should've done this earlier)
+rocket_lab_historical_data_df = rocket_lab_historical_data_df.sort_values(by='Date')
+
+# plot full-year closing price vs date
+plt.figure(figsize=(12, 6))
+plt.plot(
+    rocket_lab_historical_data_df['Date'],
+    rocket_lab_historical_data_df['Close/Last'],
+    linewidth=1.8,
+    label='Closing Price'
+)
+plt.title("Rocket Lab — 1 Year Closing Price Trend", fontsize=16)
+plt.xlabel("Date", fontsize=14)
+plt.ylabel("Closing Price (USD)", fontsize=14)
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
 plt.show()
 
+# calculate daily % change
+rocket_lab_historical_data_df['Daily % Change'] = rocket_lab_historical_data_df['Close/Last'].pct_change() * 100
+
+# drop first NaN row caused by pct_change
+rocket_lab_historical_data_df = rocket_lab_historical_data_df.dropna(subset=['Daily % Change'])
+
+# plot daily percentage change vs date
+plt.figure(figsize=(12, 6))
+plt.plot(
+    rocket_lab_historical_data_df['Date'],
+    rocket_lab_historical_data_df['Daily % Change'],
+    linewidth=1,
+    color='orange',
+    label='Daily % Change'
+)
+plt.title("Rocket Lab — Daily Percentage Change (1 Year)", fontsize=16)
+plt.xlabel("Date", fontsize=14)
+plt.ylabel("Daily % Change (%)", fontsize=14)
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+# calculate standard deviation of daily % changes
+std_dev = rocket_lab_historical_data_df['Daily % Change'].std()
+print(f"\nStandard Deviation of Daily % Changes: {std_dev:.4f}%")
