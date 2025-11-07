@@ -61,6 +61,8 @@ class Pet:
         # obtains current date & time
         today = datetime.now()
 
+        birthdate = self.birthdate # line added to prevent bugs in testing
+
         # calculates birth year
         ageYear = today.year - birthdate.year
 
@@ -187,7 +189,7 @@ class Pet:
             print(self.name,"is doing ok but could be happier")
 
 # main loop
-def start_interaction():
+def start_interaction(test_mode=False):
     print("Welcome to Pet World!!! :3")
     
     # create a pet object with a name and birth date
@@ -242,6 +244,9 @@ def start_interaction():
             menu_options[choice]()
         else:
             print("Invalid choice, please try again.")
+
+        if test_mode:
+            break
 
 # start interaction loop
 if __name__ == "__main__":

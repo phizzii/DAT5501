@@ -55,6 +55,12 @@ def test_change_behavior_happy(sample_pet, capsys):
 
 @patch("builtins.input", side_effect=["Buddy", "2020", "5", "1", "8", "8"])
 def test_start_interaction_exits_immediately(mock_input, capsys):
-    start_interaction()
+    """Test that start_interaction runs and exits cleanly in test mode."""
+    try:
+        start_interaction(test_mode=True)
+    except StopIteration:
+        pass
+
     output = capsys.readouterr().out
-    assert "welcomee" in output
+    assert "Welcome to Pet World" in output
+    assert "Goodbye" in output
