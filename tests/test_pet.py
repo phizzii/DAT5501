@@ -53,7 +53,7 @@ def test_change_behavior_happy(sample_pet, capsys):
     assert "happy" in output
 
 
-@patch("builtins.input", side_effect=["Buddy", "2020", "5", "1", "8"])
+@patch("builtins.input", side_effect=["Buddy", "2020", "5", "1", "8", "8"])
 def test_start_interaction_exits_immediately(mock_input, capsys):
     start_interaction()
     output = capsys.readouterr().out
