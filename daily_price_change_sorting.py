@@ -15,4 +15,32 @@ from sqlalchemy import true
 
 rocket_lab_historical_data_df = pd.read_csv("HistoricalData_1761069203394.csv")
 
-# google how to do sorts in python (different sorts)
+# making the date column into datetime format
+rocket_lab_historical_data_df['Date'] = pd.to_datetime(rocket_lab_historical_data_df['Date'])
+
+# change pd into numpy array, NUMPY ARRAYS CAN ONLY BE ONE DATA TYPE THEREFORE CREATE SEPARATE NUMPY ARRAYS FOR EACH DATA TYPE
+
+# google how to do sorts in python (different sorts) [bubble, insertion, merge, quick, tim]
+#   PLAN: create functions for each sort and then create functions to measure the O time complexity of each function to compare how quick each of the sorts are
+
+# creating functions in preparation for numpy array creation
+def bubble_sort(array):
+    n = len(array)
+    for i in range(n):
+        # flag for terminating function early if there is nothing to sort
+        already_sorted = True
+
+        # observe each element one by one then compare to adjacent value
+        for j in range(n - i - 1):
+            if array[j] > array [j + 1]:
+                # if element being observed is greater than adjacent value then swap them
+                array[j], array[j + 1] = array[j + 1], array[j]
+
+                # two elements were swapped so set flag to false so functions doesn't finish early
+                already_sorted = False
+        
+        # if there were no swaps during last iteration then it is sorted and function stops
+        if already_sorted:
+            break
+    
+    return array
