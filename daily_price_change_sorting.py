@@ -18,7 +18,13 @@ rocket_lab_historical_data_df = pd.read_csv("HistoricalData_1761069203394.csv")
 # making the date column into datetime format
 rocket_lab_historical_data_df['Date'] = pd.to_datetime(rocket_lab_historical_data_df['Date'])
 
+# first take high and low columns, calculate the range, then create a new column for the range (daily price change)
+# then create numpy array for daily price change and date columns only, syntax > a = df[['a','b']].to_numpy()
+
+print(rocket_lab_historical_data_df.head())
 # change pd into numpy array, NUMPY ARRAYS CAN ONLY BE ONE DATA TYPE THEREFORE CREATE SEPARATE NUMPY ARRAYS FOR EACH DATA TYPE
+
+# NUMPY_rocket_lab_data_df = rocket_lab_historical_data_df
 
 # google how to do sorts in python (different sorts) [bubble, insertion, merge, quick, tim]
 #   PLAN: create functions for each sort and then create functions to measure the O time complexity of each function to compare how quick each of the sorts are
