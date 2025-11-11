@@ -66,14 +66,18 @@ def bubble_sort(array):
 def insertion_sort(array):
     # looping from second element of the array until the last one
     for i in range(1, len(array)):
+        # element we want to position in correct place
         key_item = array[i]
-
+        # create variable that will be used to find correct position of the element referenced by key_item variable
         j = i - 1
 
+        # run through list of items (left portion of array) and find correct position of element referenced by key_item but only if key item is smaller than its adjacent values
         while j >= 0 and array[j] > key_item:
+            # shift value one position to the left and reposition j to point to the next element in the list right to left
             array[j + 1] = array[j]
             j -= 1
 
+            # when finished shifting elements, position key item in its correct locations
             array[j + 1] = key_item
         
         return array
