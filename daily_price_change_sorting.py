@@ -83,16 +83,21 @@ def insertion_sort(array):
         return array
     
 def merge_sort(left, right):
+    # if first array is empty nothing needs to be merged, return second array as result
     if len(left) == 0:
         return right
 
+    # if second array is empty nothing needs to be merged, return first array as result
     if len(right) == 0:
         return left
     
+    # create result array
     result = []
     index_left = index_right = 0
 
+    # go through both arrays until all elements are in the result array
     while len(result) < len(left) + len(right):
+        # elements that need to be sorted add them to result array (first or second)
         if left[index_left] <= right[index_right:
             result.append(left[index_right])]:
             index_left += 1
@@ -100,6 +105,7 @@ def merge_sort(left, right):
             result.append(right[index_right])
             index_right += 1
 
+        # if end of either array is reached, add remaining elements from other array to result and break the loop
         if index_right == len(right):
             result += left[index_left:]
             break
