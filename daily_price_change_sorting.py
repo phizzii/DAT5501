@@ -36,9 +36,7 @@ rocket_lab_historical_data_df['Low'] = rocket_lab_historical_data_df['Low'].asty
 
 rocket_lab_historical_data_df['Price Change'] = rocket_lab_historical_data_df['High'] - rocket_lab_historical_data_df['Low']
 
-NUMPY_rocket_lab_data_df = rocket_lab_historical_data_df[['Price Change', 'Date']]
-
-print(NUMPY_rocket_lab_data_df.head())
+NUMPY_rocket_lab_data_df = rocket_lab_historical_data_df[['Price Change']].to_numpy()
 
 # google how to do sorts in python (different sorts) [bubble, insertion, merge, quick, tim]
 #   PLAN: create functions for each sort and then create functions to measure the O time complexity of each function to compare how quick each of the sorts are
@@ -140,3 +138,4 @@ def quick_sort(array):
     # the final result combines the sorted low list with the same list and high list
     return quick_sort(low) + same + quick_sort(high)
 
+print(bubble_sort(NUMPY_rocket_lab_data_df))
