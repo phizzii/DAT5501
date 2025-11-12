@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import scipy
 import seaborn as sns
 from sqlalchemy import true
+from random import randint
 
 # creating relevant dataframe for historical data on Rocket Lab asset price
 
