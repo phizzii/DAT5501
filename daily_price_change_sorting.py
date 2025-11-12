@@ -154,3 +154,6 @@ def run_sorting_algorithm(algorithm, array):
 
 if __name__ == "__main__":
     run_sorting_algorithm(algorithm="bubble_sort", array=NUMPY_rocket_lab_data_df)
+    run_sorting_algorithm(algorithm="insertion_sort", array=NUMPY_rocket_lab_data_df)
+    run_sorting_algorithm(algorithm="merge_sort", array=NUMPY_rocket_lab_data_df)
+    run_sorting_algorithm(algorithm="quick_sort", array=NUMPY_rocket_lab_data_df)
