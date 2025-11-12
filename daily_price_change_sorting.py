@@ -4,6 +4,7 @@
 # plot T vs n, does it follow n log n distribution
 
 from matplotlib import markers
+from matplotlib.pylab import rand
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -117,3 +118,25 @@ def merge_sort(left, right):
 
     return result
             
+def quick_sort(array):
+    # if the array has less then 2 items then it is returned as the result of the function
+    if len(array) <2:
+        return array
+    
+    low, same, high = []
+
+    # select the pivot element randomly
+    pivot = array[randint(0, len(array) - 1)]
+
+    for item in array:
+        # elements that are smaller than the pivot go to the low list, elements that are larger than the pivot goes to the high list and elements that are equal to the pivot go into the same list
+        if item < pivot:
+            low.append(item)
+        elif item == pivot:
+            same.append(item)
+        elif item > pivot:
+            high.append(item)
+
+    # the final result combines the sorted low list with the same list and high list
+    return quick_sort(low) + same + quick_sort(high)
+
