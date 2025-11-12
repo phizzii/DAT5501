@@ -12,6 +12,7 @@ import scipy
 import seaborn as sns
 from sqlalchemy import true
 from random import randint
+from timeit import repeat
 
 # creating relevant dataframe for historical data on Rocket Lab asset price
 
@@ -36,7 +37,7 @@ rocket_lab_historical_data_df['Low'] = rocket_lab_historical_data_df['Low'].asty
 
 rocket_lab_historical_data_df['Price Change'] = rocket_lab_historical_data_df['High'] - rocket_lab_historical_data_df['Low']
 
-NUMPY_rocket_lab_data_df = rocket_lab_historical_data_df[['Price Change']].to_numpy()
+NUMPY_rocket_lab_data_df = rocket_lab_historical_data_df[['Price Change']].astype(float).to_numpy()
 
 # google how to do sorts in python (different sorts) [bubble, insertion, merge, quick, tim]
 #   PLAN: create functions for each sort and then create functions to measure the O time complexity of each function to compare how quick each of the sorts are
@@ -138,4 +139,18 @@ def quick_sort(array):
     # the final result combines the sorted low list with the same list and high list
     return quick_sort(low) + same + quick_sort(high)
 
-print(bubble_sort(NUMPY_rocket_lab_data_df))
+def run_sorting_algorithm(algorithm, array):
+    # call specific algorithm with supplied array (the rocket lab past data price change)
+    setup_code = f"from __main__ import {algorithm}" \
+        if algorithm != "sorted" else ""
+    
+    stmt = f"{algorithm}(array)"
+
+    # run the code to see how long it took
+    times = repeat(setup=setup_code, stmt=stmt, repeat=3, number=1, globals={"array": array, algorithm: globals()[algorithm]})
+
+    # display name of algorithm and minimum time taken to run (it was only run once so the first one)
+    print(f"algorithm: {algorithm}. time taken: {min(times)}")
+
+if __name__ == "__main__":
+    run_sorting_algorithm(algorithm="bubble_sort", array=NUMPY_rocket_lab_data_df)
