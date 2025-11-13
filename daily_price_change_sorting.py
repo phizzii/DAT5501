@@ -3,6 +3,7 @@
 # time how long it takes T to sort ^p for n = 7 > 365
 # plot T vs n, does it follow n log n distribution
 
+from turtle import left
 from matplotlib import markers
 from matplotlib.pylab import rand
 import numpy as np
@@ -41,6 +42,14 @@ NUMPY_rocket_lab_data_df = rocket_lab_historical_data_df[['Price Change']].astyp
 
 # google how to do sorts in python (different sorts) [bubble, insertion, merge, quick, tim]
 #   PLAN: create functions for each sort and then create functions to measure the O time complexity of each function to compare how quick each of the sorts are
+
+def split_array(array):
+    split_list = np.array_split(array, 2)
+
+    left = split_list[0]
+    right = split_list[1]
+
+    return left, right
 
 # creating functions in preparation for numpy array creation
 def bubble_sort(array):
@@ -83,7 +92,13 @@ def insertion_sort(array):
         
         return array
     
-def merge_sort(left, right):
+def merge_sort(array):
+
+    split_list = np.array_split(array, 2)
+
+    left = split_list[0]
+    right = split_list[1]
+
     # if first array is empty nothing needs to be merged, return second array as result
     if len(left) == 0:
         return right
@@ -99,8 +114,8 @@ def merge_sort(left, right):
     # go through both arrays until all elements are in the result array
     while len(result) < len(left) + len(right):
         # elements that need to be sorted add them to result array (first or second)
-        if left[index_left] <= right[index_right:
-            result.append(left[index_right])]:
+        if left[index_left] <= right[index_right]:
+            result.append(left[index_right])
             index_left += 1
         else:
             result.append(right[index_right])
@@ -122,7 +137,9 @@ def quick_sort(array):
     if len(array) <2:
         return array
     
-    low, same, high = []
+    low = []
+    same = []
+    high = []
 
     # select the pivot element randomly
     pivot = array[randint(0, len(array) - 1)]
