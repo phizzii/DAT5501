@@ -166,11 +166,24 @@ def run_sorting_algorithm(algorithm, array):
     # run the code to see how long it took
     times = repeat(setup=setup_code, stmt=stmt, repeat=3, number=1, globals={"array": array, algorithm: globals()[algorithm]})
 
+    result = min(times)
     # display name of algorithm and minimum time taken to run (it was only run once so the first one)
     print(f"algorithm: {algorithm}. time taken: {min(times)}")
+    return result
 
-if __name__ == "__main__":
-    run_sorting_algorithm(algorithm="bubble_sort", array=NUMPY_rocket_lab_data_df)
-    run_sorting_algorithm(algorithm="insertion_sort", array=NUMPY_rocket_lab_data_df)
-    run_sorting_algorithm(algorithm="merge_sort", array=NUMPY_rocket_lab_data_df)
-    run_sorting_algorithm(algorithm="quick_sort", array=NUMPY_rocket_lab_data_df)
+#if __name__ == "__main__":
+    #run_sorting_algorithm(algorithm="bubble_sort", array=NUMPY_rocket_lab_data_df)
+    #run_sorting_algorithm(algorithm="insertion_sort", array=NUMPY_rocket_lab_data_df)
+    #run_sorting_algorithm(algorithm="merge_sort", array=NUMPY_rocket_lab_data_df)
+    #run_sorting_algorithm(algorithm="quick_sort", array=NUMPY_rocket_lab_data_df)
+
+def make_graphs():
+    sort_names = ["Bubble", "Insertion", "Merge", "Quick"]
+    sort_measurements = [run_sorting_algorithm(algorithm="bubble_sort", array=NUMPY_rocket_lab_data_df), run_sorting_algorithm(algorithm="insertion_sort", array=NUMPY_rocket_lab_data_df), run_sorting_algorithm(algorithm="merge_sort", array=NUMPY_rocket_lab_data_df), run_sorting_algorithm(algorithm="quick_sort", array=NUMPY_rocket_lab_data_df)]
+    plt.bar(sort_names, sort_measurements)
+    plt.title('Big O Complexity Time Measurements')
+    plt.xlabel('Sorts')
+    plt.ylabel("Time Taken")
+    plt.show()
+
+make_graphs()
