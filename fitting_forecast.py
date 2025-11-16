@@ -56,7 +56,7 @@ def poly1():
     plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
     plt.xlabel("Year")
     plt.ylabel("Peak days")
-    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.title("polynomial fit 1 and 10 year forecast")
     plt.legend()
     plt.show()
 
@@ -69,7 +69,7 @@ def poly2():
     plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
     plt.xlabel("Year")
     plt.ylabel("Peak days")
-    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.title("polynomial fit 2 and 10 year forecast")
     plt.legend()
     plt.show()
 
@@ -82,7 +82,7 @@ def poly3():
     plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
     plt.xlabel("Year")
     plt.ylabel("Peak days")
-    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.title("polynomial fit 3 and 10 year forecast")
     plt.legend()
     plt.show()
 
@@ -95,7 +95,7 @@ def poly4():
     plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
     plt.xlabel("Year")
     plt.ylabel("Peak days")
-    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.title("polynomial fit 4 and 10 year forecast")
     plt.legend()
     plt.show()
 
@@ -108,7 +108,7 @@ def poly5():
     plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
     plt.xlabel("Year")
     plt.ylabel("Peak days")
-    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.title("polynomial fit 5 and 10 year forecast")
     plt.legend()
     plt.show()
 
@@ -121,7 +121,7 @@ def poly6():
     plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
     plt.xlabel("Year")
     plt.ylabel("Peak days")
-    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.title("polynomial fit 6 and 10 year forecast")
     plt.legend()
     plt.show()
 
@@ -134,7 +134,7 @@ def poly7():
     plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
     plt.xlabel("Year")
     plt.ylabel("Peak days")
-    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.title("polynomial fit 7 and 10 year forecast")
     plt.legend()
     plt.show()
 
@@ -147,7 +147,7 @@ def poly8():
     plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
     plt.xlabel("Year")
     plt.ylabel("Peak days")
-    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.title("polynomial fit 8 and 10 year forecast")
     plt.legend()
     plt.show()
 
@@ -160,7 +160,7 @@ def poly9():
     plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
     plt.xlabel("Year")
     plt.ylabel("Peak days")
-    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.title("polynomial fit 9 and 10 year forecast")
     plt.legend()
     plt.show()
 
