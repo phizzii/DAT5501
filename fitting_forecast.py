@@ -37,4 +37,16 @@ range_cherry_blossom_df = first_range_cherry_blossom_df[mask2]
 
 print(range_cherry_blossom_df.head())
 
+# attempt at trying to make polynomial fits for the graph
+# remember y is peak day and x is year
+
+coefficients = np.polyfit(range_cherry_blossom_df['Year'], range_cherry_blossom_df['Peak day'], 3)
+p = np.poly1d(coefficients)
+
+xp = np.linspace(1925, 2015, 100)
+plt.scatter(range_cherry_blossom_df['Year'], range_cherry_blossom_df['Peak day'], label='Data points')
+plt.plot(xp, p(xp), label='Cubic fit', color='green')
+plt.legend()
+plt.show()
+
 
