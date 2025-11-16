@@ -27,3 +27,14 @@ print(cherry_blossom_df.head())
 # changing column names because they do not need to be that long lol
 cherry_blossom_df.rename(columns={'Twenty-year average day of the year with peak cherry blossom': '20 yr rolling average peak day', 'Day of the year with peak cherry blossom': 'Peak day'}, inplace=True)
 print(cherry_blossom_df.head())
+
+# creating masks for specific years
+mask1 = cherry_blossom_df['Year'] >= 1925
+mask2 = cherry_blossom_df['Year'] <= 2015
+
+first_range_cherry_blossom_df = cherry_blossom_df[mask1]
+range_cherry_blossom_df = first_range_cherry_blossom_df[mask2]
+
+print(range_cherry_blossom_df.head())
+
+
