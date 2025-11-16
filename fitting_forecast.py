@@ -3,3 +3,13 @@
 # fit the sub-sample with polynomials from order 1 (a line) to 9 ax^n
 # forecast each polynomial 10 years into the future
 # how do they compare with reality
+
+# import relevant modules
+from re import M
+from turtle import color
+from matplotlib import axes, markers
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy
