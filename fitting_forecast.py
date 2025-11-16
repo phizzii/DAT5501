@@ -39,13 +39,25 @@ print(range_cherry_blossom_df.head())
 
 # attempt at trying to make polynomial fits for the graph
 # remember y is peak day and x is year
+years = range_cherry_blossom_df['Year']
+years_centered = years - years.mean()
+peak = range_cherry_blossom_df['Peak day']
 
-coefficients = np.polyfit(range_cherry_blossom_df['Year'], range_cherry_blossom_df['Peak day'], 3)
+xp = np.linspace(years.min(), years.max() + 10, 300)
+xp_centered = xp - years.mean()
+
+degree = 6
+
+coefficients = np.polyfit(years_centered, peak, degree)
 p = np.poly1d(coefficients)
 
-xp = np.linspace(1925, 2015, 100)
-plt.scatter(range_cherry_blossom_df['Year'], range_cherry_blossom_df['Peak day'], label='Data points')
-plt.plot(xp, p(xp), label='Cubic fit', color='green')
+plt.figure(figsize=(10,6))
+plt.scatter(years, peak, label='Data points', color='blue')
+plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
+
+plt.xlabel("Year")
+plt.ylabel("Peak days")
+plt.title("polynomial fits 1-9 and 10 year forecast")
 plt.legend()
 plt.show()
 
