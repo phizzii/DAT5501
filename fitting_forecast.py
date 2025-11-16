@@ -13,3 +13,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import scipy
+
+# making data frames for csv files
+cherry_blossom_df = pd.read_csv("date-of-the-peak-cherry-tree-blossom-in-kyoto.csv")
+
+# applying head() function to see current columns and decide which ones need to be displayed or dropped
+print(cherry_blossom_df.head())
+
+# dropping unnecessary columns from dataset
+cherry_blossom_df = cherry_blossom_df.drop(columns=['Entity','Code'])
+print(cherry_blossom_df.head())
