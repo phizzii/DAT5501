@@ -25,6 +25,5 @@ cherry_blossom_df = cherry_blossom_df.drop(columns=['Entity','Code'])
 print(cherry_blossom_df.head())
 
 # changing column names because they do not need to be that long lol
-cherry_blossom_df = cherry_blossom_df.rename(columns={'Twenty-year average day of year with peak cherry blossom': '20 yr rolling average peak day', 'Day of year with peak cherry blossom': 'Peak day'}, inplace=True)
-
-cherry_blossom_df
+cherry_blossom_df.rename(columns={'Twenty-year average day of the year with peak cherry blossom': '20 yr rolling average peak day', 'Day of the year with peak cherry blossom': 'Peak day'}, inplace=True)
+print(cherry_blossom_df.head())
