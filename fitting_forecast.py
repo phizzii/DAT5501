@@ -46,19 +46,130 @@ peak = range_cherry_blossom_df['Peak day']
 xp = np.linspace(years.min(), years.max() + 10, 300)
 xp_centered = xp - years.mean()
 
-degree = 6
+# i know these functions are SUPER inefficient but i want to be able to see all the graphs not just one or one with all lines lolol
+def poly1():
+    degree = 1
+    coefficients = np.polyfit(years_centered, peak, degree)
+    p = np.poly1d(coefficients)
+    plt.figure(figsize=(10,6))
+    plt.scatter(years, peak, label='Data points', color='blue')
+    plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
+    plt.xlabel("Year")
+    plt.ylabel("Peak days")
+    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.legend()
+    plt.show()
 
-coefficients = np.polyfit(years_centered, peak, degree)
-p = np.poly1d(coefficients)
+def poly2():
+    degree = 2
+    coefficients = np.polyfit(years_centered, peak, degree)
+    p = np.poly1d(coefficients)
+    plt.figure(figsize=(10,6))
+    plt.scatter(years, peak, label='Data points', color='blue')
+    plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
+    plt.xlabel("Year")
+    plt.ylabel("Peak days")
+    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.legend()
+    plt.show()
 
-plt.figure(figsize=(10,6))
-plt.scatter(years, peak, label='Data points', color='blue')
-plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
+def poly3():
+    degree = 3
+    coefficients = np.polyfit(years_centered, peak, degree)
+    p = np.poly1d(coefficients)
+    plt.figure(figsize=(10,6))
+    plt.scatter(years, peak, label='Data points', color='blue')
+    plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
+    plt.xlabel("Year")
+    plt.ylabel("Peak days")
+    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.legend()
+    plt.show()
 
-plt.xlabel("Year")
-plt.ylabel("Peak days")
-plt.title("polynomial fits 1-9 and 10 year forecast")
-plt.legend()
-plt.show()
+def poly4():
+    degree = 4
+    coefficients = np.polyfit(years_centered, peak, degree)
+    p = np.poly1d(coefficients)
+    plt.figure(figsize=(10,6))
+    plt.scatter(years, peak, label='Data points', color='blue')
+    plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
+    plt.xlabel("Year")
+    plt.ylabel("Peak days")
+    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.legend()
+    plt.show()
 
+def poly5():
+    degree = 5
+    coefficients = np.polyfit(years_centered, peak, degree)
+    p = np.poly1d(coefficients)
+    plt.figure(figsize=(10,6))
+    plt.scatter(years, peak, label='Data points', color='blue')
+    plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
+    plt.xlabel("Year")
+    plt.ylabel("Peak days")
+    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.legend()
+    plt.show()
 
+def poly6():
+    degree = 6
+    coefficients = np.polyfit(years_centered, peak, degree)
+    p = np.poly1d(coefficients)
+    plt.figure(figsize=(10,6))
+    plt.scatter(years, peak, label='Data points', color='blue')
+    plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
+    plt.xlabel("Year")
+    plt.ylabel("Peak days")
+    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.legend()
+    plt.show()
+
+def poly7():
+    degree = 7
+    coefficients = np.polyfit(years_centered, peak, degree)
+    p = np.poly1d(coefficients)
+    plt.figure(figsize=(10,6))
+    plt.scatter(years, peak, label='Data points', color='blue')
+    plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
+    plt.xlabel("Year")
+    plt.ylabel("Peak days")
+    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.legend()
+    plt.show()
+
+def poly8():
+    degree = 8
+    coefficients = np.polyfit(years_centered, peak, degree)
+    p = np.poly1d(coefficients)
+    plt.figure(figsize=(10,6))
+    plt.scatter(years, peak, label='Data points', color='blue')
+    plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
+    plt.xlabel("Year")
+    plt.ylabel("Peak days")
+    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.legend()
+    plt.show()
+
+def poly9():
+    degree = 9
+    coefficients = np.polyfit(years_centered, peak, degree)
+    p = np.poly1d(coefficients)
+    plt.figure(figsize=(10,6))
+    plt.scatter(years, peak, label='Data points', color='blue')
+    plt.plot(xp, p(xp_centered), label=f'order {degree}', linewidth=2)
+    plt.xlabel("Year")
+    plt.ylabel("Peak days")
+    plt.title("polynomial fits 1-9 and 10 year forecast")
+    plt.legend()
+    plt.show()
+
+poly1()
+poly2()
+poly3()
+poly4()
+poly5()
+poly6()
+poly7()
+poly8()
+poly9()
