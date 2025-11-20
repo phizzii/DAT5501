@@ -20,3 +20,26 @@ def test_fraction_votes_range(us_df):
     assert us_df["fraction_votes"].between(0,1).all(), \
          "fraction votes should be between 0 and 1"
     
+def test_histogram(us_df):
+    # making sure the histogram plotting works without chucking errors at me
+    fig, ax = plt.subplots()
+    ax.hist(us_df["fraction_votes"], edgecolor="black")
+    plt.close(fig)
+
+def test_candidate_filtering(us_df):
+    # making sure the filtering for the specific candidtaes returns series object
+    c1 = us_df[us_df["candidate"] == "Bernie Sanders"]["fraction_votes"]
+    c2 = us_df[us_df["candidate"] == "Ted Cruz"]["fraction_votes"] 
+
+    assert isinstance(c1, pd.Series)
+    assert isinstance(c2, pd.Series)
+
+def test_boxplot(us_df):
+    # making sure the boxplot is plotted for the two candidates
+    cand1 = us_df[us_df["candidate"] == "Bernie Sanders"]["fraction_votes"]
+    cand2 = us_df[us_df["candidate"] == "Ted Cruz"]["fraction_votes"] 
+
+    fig, ax = plt.subplots()
+    ax.boxplot([cand1, cand2], labels=["Bernie Sanders", "Ted Cruz"])
+    plt.close(fig)
+    
