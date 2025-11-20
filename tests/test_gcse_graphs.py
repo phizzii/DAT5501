@@ -10,7 +10,7 @@ import graphs_barmet_education
 
 @pytest.fixture
 def sample_csvs(tmp_path):
-    """Create sample CSV files to test with."""
+    # create sample CSV files to test with."""
     df = pd.DataFrame({
         "year": [2009, 2010, 2011, 2012],
         "average point score": [650, 700, 720, 740],
@@ -25,7 +25,7 @@ def sample_csvs(tmp_path):
 
 
 def test_main_returns_expected_stats(sample_csvs):
-    """Ensure mean/median and dataset stats are computed correctly."""
+    # make sure mean/median and dataset stats are computed correctly."""
     csv1, csv2 = sample_csvs
     result = graphs_barmet_education.main(csv1, csv2, show_plots=False)
 
@@ -37,14 +37,14 @@ def test_main_returns_expected_stats(sample_csvs):
 
 
 def test_main_handles_missing_file(tmp_path):
-    """Check that missing file raises FileNotFoundError."""
+    # check that missing file raises FileNotFoundError
     fake_path = tmp_path / "does_not_exist.csv"
     with pytest.raises(FileNotFoundError):
         graphs_barmet_education.main(str(fake_path), str(fake_path), show_plots=False)
 
 
 def test_main_creates_plots(sample_csvs):
-    """Verify that the main function generates Matplotlib figures (without showing them)."""
+    # make sure main function generates Matplotlib figures (without showing them)."""
     csv1, csv2 = sample_csvs
 
     # clear any existing figures
