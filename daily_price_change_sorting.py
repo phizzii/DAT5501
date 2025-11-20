@@ -17,7 +17,7 @@ from timeit import repeat
 
 # creating relevant dataframe for historical data on Rocket Lab asset price
 
-rocket_lab_historical_data_df = pd.read_csv("HistoricalData_1761069203394.csv")
+rocket_lab_historical_data_df = pd.read_csv("datasets/HistoricalData_1761069203394.csv")
 
 # making the date column into datetime format
 rocket_lab_historical_data_df['Date'] = pd.to_datetime(rocket_lab_historical_data_df['Date'])

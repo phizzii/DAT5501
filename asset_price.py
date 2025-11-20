@@ -15,7 +15,7 @@ from sqlalchemy import true
 
 # creating relevant dataframe for historical data on Rocket Lab asset price
 
-rocket_lab_historical_data_df = pd.read_csv("HistoricalData_1761069203394.csv")
+rocket_lab_historical_data_df = pd.read_csv("datasets/HistoricalData_1761069203394.csv")
 
 print(rocket_lab_historical_data_df.head())
 

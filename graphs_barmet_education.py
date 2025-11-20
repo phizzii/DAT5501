@@ -1,3 +1,5 @@
+# find where the csv went
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt

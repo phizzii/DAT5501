@@ -9,8 +9,8 @@ import seaborn as sns
 
 # creating relevant data frames for csv files, specifying columns to be displayed
 # datasets to go from 2011 to 2019 (9 years)
-uk_china_deaths_df = pd.read_csv("UK_vs_China_Death_Data.csv")
-annual_working_hours_df = pd.read_csv("annual-working-hours-per-worker.csv")
+uk_china_deaths_df = pd.read_csv("datasets/UK_vs_China_Death_Data.csv")
+annual_working_hours_df = pd.read_csv("datasets/annual-working-hours-per-worker.csv")
 
 # applying head function to see current columns to decide which to drop
 print(uk_china_deaths_df.head())
