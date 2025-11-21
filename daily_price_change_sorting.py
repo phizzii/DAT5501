@@ -171,12 +171,6 @@ def run_sorting_algorithm(algorithm, array):
     print(f"algorithm: {algorithm}. time taken: {min(times)}")
     return result
 
-#if __name__ == "__main__":
-    #run_sorting_algorithm(algorithm="bubble_sort", array=NUMPY_rocket_lab_data_df)
-    #run_sorting_algorithm(algorithm="insertion_sort", array=NUMPY_rocket_lab_data_df)
-    #run_sorting_algorithm(algorithm="merge_sort", array=NUMPY_rocket_lab_data_df)
-    #run_sorting_algorithm(algorithm="quick_sort", array=NUMPY_rocket_lab_data_df)
-
 def make_graphs():
     sort_names = ["Bubble", "Insertion", "Merge", "Quick"]
     sort_measurements = [run_sorting_algorithm(algorithm="bubble_sort", array=NUMPY_rocket_lab_data_df), run_sorting_algorithm(algorithm="insertion_sort", array=NUMPY_rocket_lab_data_df), run_sorting_algorithm(algorithm="merge_sort", array=NUMPY_rocket_lab_data_df), run_sorting_algorithm(algorithm="quick_sort", array=NUMPY_rocket_lab_data_df)]
@@ -186,6 +180,11 @@ def make_graphs():
     plt.ylabel("Time Taken")
     plt.show()
 
-make_graphs()
-
+if __name__ == "__main__":
+    run_sorting_algorithm(algorithm="bubble_sort", array=NUMPY_rocket_lab_data_df)
+    run_sorting_algorithm(algorithm="insertion_sort", array=NUMPY_rocket_lab_data_df)
+    run_sorting_algorithm(algorithm="merge_sort", array=NUMPY_rocket_lab_data_df)
+    run_sorting_algorithm(algorithm="quick_sort", array=NUMPY_rocket_lab_data_df)
+    make_graphs()
+    
 # result: insertion sort (in comparison to the other sorts on the graph) is the quickest sort to use for the price change dataset for the past year on Rocket Lab
