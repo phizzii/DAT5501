@@ -93,7 +93,7 @@ LinkedIn: [Add me here!!](https://www.linkedin.com/in/sophie-botten-82a91227a/)
 [issues-shield]: https://img.shields.io/github/issues/phizzii/DAT5501.svg?style=for-the-badge
 [issues-url]: https://github.com/phizzii/DAT5501/issues
 [license-shield]: https://img.shields.io/github/license/phizzii/DAT5501.svg?style=for-the-badge
-[license-url]: https://github.com/phizzii/DAT5501/LICENSE.md
+[license-url]: https://github.com/phizzii/DAT5501/main/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/sophie-botten-82a91227a/
 <!-- Shields.io badges. You can a comprehensive list with many more badges at: https://github.com/inttter/md-badges -->
