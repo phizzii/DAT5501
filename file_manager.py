@@ -822,7 +822,7 @@ menu_choices = {
 # main menu operator function > shows user list of functions to choose from
 def operate_menu(menuList):
     # setting current working directory as '/Users' (makes it easier to search for files)
-    os.chdir('/Users')
+    #os.chdir('/Users')
     cwd = str(os.getcwd())
     
     # main menu set of selection choices displayed to user is terminal
@@ -838,7 +838,8 @@ def operate_menu(menuList):
         print("Attempt Unsuccessful")
 
 # calls operate_menu function (main program)
-operate_menu(menu_choices)
+if __name__ == "__main__":
+    operate_menu(menu_choices)
 
 # Notes (important functions to remember)
 # os.chdir() > change current working directory
