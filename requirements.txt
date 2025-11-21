@@ -7,3 +7,4 @@ seaborn
 pyparsing
 xlsxwriter
 openpyxl
+sqlalchemy
