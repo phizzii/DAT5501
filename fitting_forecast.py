@@ -68,3 +68,7 @@ polyall()
 # number of 'degrees of freedom' = No - Np where No is the number of observations and Np is the number of parameters
 # plot X^2 per degree of freedom and the BIC as a function of the polynomial order
 # how does BIC compare to the X^2 per degree of freedom - which model is best
+
+# what are parameter values and covariance matrix
+# what are the uncertainties in parameter values
+# is there a better model for example exponential

@@ -38,7 +38,7 @@ rocket_lab_historical_data_df['Low'] = rocket_lab_historical_data_df['Low'].asty
 
 rocket_lab_historical_data_df['Price Change'] = rocket_lab_historical_data_df['High'] - rocket_lab_historical_data_df['Low']
 
-NUMPY_rocket_lab_data_df = rocket_lab_historical_data_df[['Price Change']].astype(float).to_numpy()
+NUMPY_rocket_lab_data_df = rocket_lab_historical_data_df[['Price Change']].astype(float).to_list()
 
 # google how to do sorts in python (different sorts) [bubble, insertion, merge, quick, tim]
 #   PLAN: create functions for each sort and then create functions to measure the O time complexity of each function to compare how quick each of the sorts are
@@ -90,7 +90,7 @@ def insertion_sort(array):
             # when finished shifting elements, position key item in its correct locations
             array[j + 1] = key_item
         
-        return array
+    return array
     
 def merge_sort(array):
 
@@ -186,5 +186,5 @@ if __name__ == "__main__":
     run_sorting_algorithm(algorithm="merge_sort", array=NUMPY_rocket_lab_data_df)
     run_sorting_algorithm(algorithm="quick_sort", array=NUMPY_rocket_lab_data_df)
     make_graphs()
-    
+
 # result: insertion sort (in comparison to the other sorts on the graph) is the quickest sort to use for the price change dataset for the past year on Rocket Lab
