@@ -72,3 +72,25 @@ polyall()
 # what are parameter values and covariance matrix
 # what are the uncertainties in parameter values
 # is there a better model for example exponential
+
+# this is the test and train split
+
+last_year = cherry_blossom_df['Year'].max()
+
+train_df = cherry_blossom_df[cherry_blossom_df['Year'] <= last_year - 10]
+test_df = cherry_blossom_df[cherry_blossom_df['Year'] > last_year - 10]
+
+x_train = train_df['Year']
+y_train = train_df['Peak day']
+
+x_test = test_df['Year']
+y_test = test_df['Peak day']
+
+# center the data cause otherwise it goes alllll over the place
+x_mean = x_train.mean()
+x_train_c = x_train - x_mean
+x_test_c = x_test - x_mean
+
+# make lists for eval
+orders = range(1,10)
+
