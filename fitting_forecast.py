@@ -93,4 +93,30 @@ x_test_c = x_test - x_mean
 
 # make lists for eval
 orders = range(1,10)
+chi2_vals = []
+chi2_dof_vals = []
+bic_vals = []
+
+# looping through poly orders
+uncertainty = 1.0 # just guessing the measurement uncertainty right now
+
+for n in orders:
+    # fit polynomial to training data, coeffs cause i already used coefficients :(
+    coeffs = np.polyfit(x_train_c, y_train, n)
+    model = np.poly1d(coeffs)
+
+    # residuals (training)
+    residuals = y_train - model(x_train_c)
+
+    # chi-squared
+    chi2 = np.sum((residuals / uncertainty)**2)
+    chi2_vals.append(chi2)
+
+    # degrees of freedom = Nobs - Nparams
+    dof = len(x_train) - (n + 1)
+    chi2_dof_vals.append(chi2 / dof)
+
+    # BIC = chi² + k ln(N)
+    bic = chi2 + (n + 1) * np.log(len(x_train))
+    bic_vals.append(bic)
 
