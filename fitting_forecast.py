@@ -120,3 +120,42 @@ for n in orders:
     bic = chi2 + (n + 1) * np.log(len(x_train))
     bic_vals.append(bic)
 
+# plot chi² per degree of freeedom
+plt.figure(figsize=(8,5))
+plt.plot(orders, chi2_dof_vals, marker='o')
+plt.xlabel("Polynomial order")
+plt.ylabel("Chi² per degree of freedom")
+plt.title("Chi²/DOF vs Polynomial Order")
+plt.grid(alpha=0.4)
+plt.show()
+
+# plot the BIC
+plt.figure(figsize=(8,5))
+plt.plot(orders, bic_vals, marker='o')
+plt.xlabel("Polynomial order")
+plt.ylabel("BIC")
+plt.title("Bayesian Information Criterion vs Polynomial Order")
+plt.grid(alpha=0.4)
+plt.show()
+
+# choose best model (smallest BIC)
+best_order = orders[np.argmin(bic_vals)]
+print("Best polynomial order:", best_order)
+
+best_coeffs = np.polyfit(x_train_c, y_train, best_order)
+best_model = np.poly1d(best_coeffs)
+
+# comparing forecast vs actual data
+xp_future = np.linspace(x_train.min(), x_test.max(), 300)
+xp_future_centered = xp_future - x_mean
+
+plt.figure(figsize=(10,6))
+plt.scatter(x_train, y_train, label="Training data", color="blue")
+plt.scatter(x_test, y_test, label="Actual last 10 years", color="red")
+plt.plot(xp_future, best_model(xp_future_centered), label=f"Best model (order {best_order})", linewidth=2)
+plt.xlabel("Year")
+plt.ylabel("Peak day")
+plt.title("Forecast vs Actual Data (Last 10 Years)")
+plt.legend()
+plt.show()
+
