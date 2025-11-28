@@ -10,7 +10,7 @@ matplotlib.use("Agg")
 # import the script safely
 import importlib.util
 
-SCRIPT_PATH = os.path.join(os.path.dirname(__file__), "..", "asset_price.py")
+SCRIPT_PATH = os.path.join(os.path.dirname(__file__), "..", "Week5", "asset_price.py")
 
 @pytest.fixture(scope="module")
 def rocket_lab_module():
