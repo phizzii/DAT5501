@@ -4,7 +4,7 @@ import pytest
 from unittest.mock import patch
 
 # importing my functions
-from small_projects import searchFolder, searchFile, delNonEmptyDir
+from small_projects.file_manager import searchFolder, searchFile, delNonEmptyDir
 
 def test_search_folder_finds_directory(tmp_path, monkeypatch):
     # Create directory structure
@@ -19,7 +19,7 @@ def test_search_folder_finds_directory(tmp_path, monkeypatch):
 
     monkeypatch.setattr("os.walk", fake_walk)
 
-    from small_projects import searchFolder
+    from small_projects.file_manager import searchFolder
     result = searchFolder("target_dir")
 
     assert result is not None
@@ -36,7 +36,7 @@ def test_search_folder_not_found(monkeypatch, tmp_path):
 
     monkeypatch.setattr("os.walk", fake_walk)
 
-    from small_projects import searchFolder
+    from small_projects.file_manager import searchFolder
     result = searchFolder("missing_dir")
     assert result is None
 
@@ -52,7 +52,7 @@ def test_search_file_finds_file(tmp_path, monkeypatch):
 
     monkeypatch.setattr("os.walk", fake_walk)
 
-    from small_projects import searchFile
+    from small_projects.file_manager import searchFile
     result = searchFile("data.txt")
 
     assert result is not None
@@ -69,7 +69,7 @@ def test_search_file_not_found(monkeypatch, tmp_path):
 
     monkeypatch.setattr("os.walk", fake_walk)
 
-    from small_projects import searchFile
+    from small_projects.file_manager import searchFile
     result = searchFile("missing.txt")
     assert result is None
 
@@ -79,7 +79,7 @@ def test_del_non_empty_dir(tmp_path):
     file = folder / "inner.txt"
     file.write_text("stuff")
 
-    from small_projects import delNonEmptyDir
+    from small_projects.file_manager import delNonEmptyDir
     delNonEmptyDir(str(folder))
 
     assert not folder.exists()
