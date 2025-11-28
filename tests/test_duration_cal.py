@@ -18,7 +18,7 @@ def test_days_difference_correct(monkeypatch, capsys):
 
     assert "2000-01-01" in capture
     assert "today" not in capture
-    assert "9442" in capture # THIS NEEDS TO BE CONSISTENTLY CHANGED ALIGNING WITH THE CURRENT DATE
+    assert "9463" in capture # THIS NEEDS TO BE CONSISTENTLY CHANGED ALIGNING WITH THE CURRENT DATE
 
 def test_invalid_date_input(monkeypatch):
     inputs = iter(["not-a-date"])
