@@ -12,4 +12,10 @@
 # eg, 2000 lines of data, 5 features
 
 # do the guitar chord dataset from the uc irvine machine learning repo
-import sklearn
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import pandas as pd
+
+data = pd.read_csv("guitar_chords_clean.csv")
+
