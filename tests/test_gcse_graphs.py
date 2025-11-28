@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 # allow importing from parent directory
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import graphs_barmet_education
+from small_projects import graphs_barmet_education
 
 @pytest.fixture
 def sample_csvs(tmp_path):

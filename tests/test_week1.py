@@ -1,5 +1,5 @@
 import unittest
-from Week1 import littleFunction
+from Week1.Week1 import littleFunction
 
 class testlittleFunction(unittest.TestCase):
     def test_integers(self):

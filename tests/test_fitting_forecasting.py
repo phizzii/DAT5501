@@ -1,7 +1,7 @@
 import unittest
 import pandas as pd
 import numpy as np
-from fitting_forecast import load_clean_data, polyall_setup, train_test_split, eval, best_model
+from Week8and9.fitting_forecast import load_clean_data, polyall_setup, train_test_split, eval, best_model
 
 # love a good bit of oop
 class test_cherry_forecast(unittest.TestCase):

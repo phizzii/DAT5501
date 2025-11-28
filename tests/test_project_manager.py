@@ -6,7 +6,7 @@ import sys
 
 # append parent directory to import your script
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import project_manager
+from small_projects import project_manager
 
 # ---- Fixtures ----
 @pytest.fixture

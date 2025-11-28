@@ -4,7 +4,7 @@ import pytest
 
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import duration_calculator_python
+import Week5.duration_calculator_python as duration_calculator_python
 
 
 def test_days_difference_correct(monkeypatch, capsys):

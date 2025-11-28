@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pytest
 
 # import functions from my script
-from daily_price_change_sorting import (
+from Week8and9.daily_price_change_sorting import (
     bubble_sort,
     insertion_sort,
     merge_sort,

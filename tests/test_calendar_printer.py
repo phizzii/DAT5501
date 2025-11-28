@@ -1,7 +1,7 @@
 # calendar printer testing suite
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import calender_printer_python
+import Week3.calender_printer_python as calender_printer_python
 
 import builtins
 from io import StringIO

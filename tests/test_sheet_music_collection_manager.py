@@ -3,7 +3,7 @@ import os
 import tempfile
 import pytest
 
-from sheet_music_collection_manager import Piece, CollectionManager
+from small_projects.sheet_music_collection_manager import Piece, CollectionManager
 
 def test_piece_initialization():
     # basic test class pieces (they are so overplayed but im not gonna over complicate it)
