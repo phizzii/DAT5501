@@ -9,3 +9,5 @@ xlsxwriter
 openpyxl
 sqlalchemy
 freezegun
+sklearn
+graphviz
