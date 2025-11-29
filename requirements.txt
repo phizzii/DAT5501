@@ -9,5 +9,5 @@ xlsxwriter
 openpyxl
 sqlalchemy
 freezegun
-sklearn
+scikit-learn
 graphviz
