@@ -25,9 +25,9 @@ jobs:
         command: |
           python - << 'EOF'
           import sys, os
-        print("PYTHONPATH:", os.getenv("PYTHONPATH"))
-        print("sys.path:", sys.path)
-        EOF
+          print("PYTHONPATH:", os.getenv("PYTHONPATH"))
+          print("sys.path:", sys.path)
+          EOF
       - run:
           name: Run tests
           command: pytest -vv
