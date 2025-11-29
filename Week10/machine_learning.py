@@ -21,13 +21,13 @@ import graphviz
 from sklearn.tree import export_graphviz
 import matplotlib.pyplot as plt
 
+ # convert finger positions to numerical array
+def parse_finger_positions(fp):
+    # 'x' or None -> -1, numeric strings -> int
+    return [int(f) if f.isdigit() else -1 for f in fp.replace(" ", "").split(",")]
+
 def main():
     df = pd.read_csv('datasets/guitar_chords_clean.csv')
-
-    # convert finger positions to numerical array
-    def parse_finger_positions(fp):
-        # 'x' or None -> -1, numeric strings -> int
-        return [int(f) if f.isdigit() else -1 for f in fp.replace(" ", "").split(",")]
 
     df['FINGER_POS_ARRAY'] = df['FINGER_POSITIONS'].apply(parse_finger_positions)
 
