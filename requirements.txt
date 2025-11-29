@@ -8,3 +8,4 @@ pyparsing
 xlsxwriter
 openpyxl
 sqlalchemy
+freezegun
