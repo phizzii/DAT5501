@@ -5,6 +5,7 @@ from unittest.mock import patch
 
 # importing my functions
 from small_projects.file_manager import searchFolder, searchFile, delNonEmptyDir
+original_walk = os.walk
 
 def test_search_folder_finds_directory(tmp_path, monkeypatch):
     # Create directory structure
@@ -14,7 +15,7 @@ def test_search_folder_finds_directory(tmp_path, monkeypatch):
 
     # Mock os.walk to walk through tmp_path instead of /Users
     def fake_walk(_):
-        for root, dirs, files in os.walk(base):
+        for root, dirs, files in original_walk(base):
             yield root, dirs, files
 
     monkeypatch.setattr("os.walk", fake_walk)
@@ -31,7 +32,7 @@ def test_search_folder_not_found(monkeypatch, tmp_path):
     base.mkdir()
 
     def fake_walk(_):
-        for root, dirs, files in os.walk(base):
+        for root, dirs, files in original_walk(base):
             yield root, dirs, files
 
     monkeypatch.setattr("os.walk", fake_walk)
@@ -47,7 +48,7 @@ def test_search_file_finds_file(tmp_path, monkeypatch):
     file.write_text("hello")
 
     def fake_walk(_):
-        for root, dirs, files in os.walk(base):
+        for root, dirs, files in original_walk(base):
             yield root, dirs, files
 
     monkeypatch.setattr("os.walk", fake_walk)
@@ -64,7 +65,7 @@ def test_search_file_not_found(monkeypatch, tmp_path):
     base.mkdir()
 
     def fake_walk(_):
-        for root, dirs, files in os.walk(base):
+        for root, dirs, files in original_walk(base):
             yield root, dirs, files
 
     monkeypatch.setattr("os.walk", fake_walk)

@@ -1,12 +1,13 @@
 import builtins
 import numpy as np
 import pytest
+from freezegun import freeze_time
 
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import Week5.duration_calculator_python as duration_calculator_python
 
-
+@freeze_time("2025-11-28")
 def test_days_difference_correct(monkeypatch, capsys):
     # put fake date
     inputs = iter(["2000-01-01"])
