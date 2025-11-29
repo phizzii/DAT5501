@@ -8,11 +8,11 @@ import os
 import shutil
 
 # function to search for a folder in a directory
-def searchFolder(folder_name):
+def searchFolder(folder_name, start_dir="."):
     print("Finding...")
     
     # using depth first tree traversal to look in each folder for folder name specified
-    for root, dirs, files in os.walk('/Users'):
+    for root, dirs, files in os.walk('start_dir'):
         
         # if found, folder path is joined together with root and returned
         if folder_name in dirs:
@@ -25,11 +25,11 @@ def searchFolder(folder_name):
     return None
 
 # function to search for a file in a directory
-def searchFile(file_name):
+def searchFile(file_name, start_dir="."):
     print("Finding...")
     
     # using depth first tree traversal to look in each folder for file name specified
-    for root, dirs, files in os.walk('/Users'):
+    for root, dirs, files in os.walk(start_dir):
         
         # if found, file path is joined with root and returned
         if file_name in files:

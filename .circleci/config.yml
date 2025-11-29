@@ -5,22 +5,32 @@ jobs:
     docker:
       - image: python:3.8
 
-    working_directory: ~/project/DAT5501
+    working_directory: ~/project
 
     steps:
       - checkout
+
+      - run:
+          name: Debug checkout and confirm structure
+          command: |
+            echo "PWD = $(pwd)"
+            echo "Contents of project root:"
+            ls -la
+              
       - run:
           name: Install dependencies
           command: pip install -r requirements.txt
       - run:
-          name: Debug working directory
-          command: |
-            echo "PWD = $(pwd)"
-            echo "Contents:"
-            ls -la
+        name: Show pythonpath and sys.path
+        command: |
+          python - << 'EOF'
+          import sys, os
+        print("PYTHONPATH:", os.getenv("PYTHONPATH"))
+        print("sys.path:", sys.path)
+        EOF
       - run:
           name: Run tests
-          command: pytest
+          command: pytest -vv
 
 workflows:
   version: 2

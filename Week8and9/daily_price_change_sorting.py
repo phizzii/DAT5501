@@ -4,6 +4,7 @@
 # plot T vs n, does it follow n log n distribution
 
 from turtle import left
+from unittest import FunctionTestCase
 from matplotlib import markers
 from matplotlib.pylab import rand
 import numpy as np
@@ -91,46 +92,31 @@ def insertion_sort(array):
             array[j + 1] = key_item
         
     return array
-    
+
 def merge_sort(array):
+    if len(array) <= 1:
+        return array
 
-    split_list = np.array_split(array, 2)
+    mid = len(array) // 2
+    left = merge_sort(array[:mid])
+    right = merge_sort(array[mid:])
 
-    left = split_list[0]
-    right = split_list[1]
-
-    # if first array is empty nothing needs to be merged, return second array as result
-    if len(left) == 0:
-        return right
-
-    # if second array is empty nothing needs to be merged, return first array as result
-    if len(right) == 0:
-        return left
-    
-    # create result array
     result = []
-    index_left = index_right = 0
+    i = j = 0
 
-    # go through both arrays until all elements are in the result array
-    while len(result) < len(left) + len(right):
-        # elements that need to be sorted add them to result array (first or second)
-        if left[index_left] <= right[index_right]:
-            result.append(left[index_right])
-            index_left += 1
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
         else:
-            result.append(right[index_right])
-            index_right += 1
+            result.append(right[j])
+            j += 1
 
-        # if end of either array is reached, add remaining elements from other array to result and break the loop
-        if index_right == len(right):
-            result += left[index_left:]
-            break
+    result.extend(left[i:])
+    result.extend(right[j:])
 
-        if index_left == len(left):
-            result += right[index_right:]
-            break
+    return np.array(result, dtype=float)
 
-    return result
             
 def quick_sort(array):
     # if the array has less then 2 items then it is returned as the result of the function
@@ -157,19 +143,24 @@ def quick_sort(array):
     return quick_sort(low) + same + quick_sort(high)
 
 def run_sorting_algorithm(algorithm, array):
-    # call specific algorithm with supplied array (the rocket lab past data price change)
-    setup_code = f"from __main__ import {algorithm}" \
-        if algorithm != "sorted" else ""
-    
-    stmt = f"{algorithm}(array)"
+    from timeit import repeat
 
-    # run the code to see how long it took
-    times = repeat(setup=setup_code, stmt=stmt, repeat=3, number=1, globals={"array": array, algorithm: globals()[algorithm]})
+    functions = {
+        "bubble_sort": bubble_sort,
+        "insertion_sort": insertion_sort,
+        "merge_sort": merge_sort,
+        "quick_sort": quick_sort,
+        "sorted": sorted,
+    }
 
-    result = min(times)
-    # display name of algorithm and minimum time taken to run (it was only run once so the first one)
-    print(f"algorithm: {algorithm}. time taken: {min(times)}")
-    return result
+    func = functions[algorithm]
+
+    stmt = "func(arr)"
+    setup = "pass"
+
+    times = repeat(stmt=stmt, setup=setup, repeat=3, number=1, globals={"func": func, "arr": array.copy()})
+
+    return min(times)
 
 def make_graphs():
     sort_names = ["Bubble", "Insertion", "Merge", "Quick"]
