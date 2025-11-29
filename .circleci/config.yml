@@ -21,13 +21,13 @@ jobs:
           name: Install dependencies
           command: pip install -r requirements.txt
       - run:
-        name: Show pythonpath and sys.path
-        command: |
-          python - << 'EOF'
-          import sys, os
-          print("PYTHONPATH:", os.getenv("PYTHONPATH"))
-          print("sys.path:", sys.path)
-          EOF
+          name: Show pythonpath and sys.path
+          command: |
+            python - << 'EOF'
+            import sys, os
+            print("PYTHONPATH:", os.getenv("PYTHONPATH"))
+            print("sys.path:", sys.path)
+            EOF
       - run:
           name: Run tests
           command: pytest -vv
