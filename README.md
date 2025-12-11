@@ -47,8 +47,8 @@ This repo has all the code I have written for my DAT5501 data analysis module fo
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Creating chi-squared graph
-- [ ] Creating tests for fitting forecast activity
+- [ ] Fixing tests for the machine learning script in Week 10
+- [ ] Finalising this repo
 
 See the [open issues](https://github.com/phizzii/DAT5501/issues) for a full list of proposed features (and known issues).
 
