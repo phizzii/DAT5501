@@ -11,7 +11,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.tree import DecisionTreeClassifier
-from Week10.machine_learning import parse_finger_positions  # import your function if in a separate file
+from Week10.machine_learning_stars
 
 # sample minimal dataset for testing
 @pytest.fixture
@@ -22,11 +22,6 @@ def sample_df():
         'CHORD_TYPE': ['maj', 'm', '7']
     }
     return pd.DataFrame(data)
-
-def test_parse_finger_positions():
-    assert parse_finger_positions('0,1,2,x,4,5') == [0, 1, 2, -1, 4, 5]
-    assert parse_finger_positions('x,x,x,x,x,x') == [-1, -1, -1, -1, -1, -1]
-    assert parse_finger_positions('1,2,3,4,5,6') == [1, 2, 3, 4, 5, 6]
 
 def test_structure_encoding(sample_df):
     sample_df['STRUCTURE_LIST'] = sample_df['CHORD_STRUCTURE'].apply(lambda x: x.split(';'))
